@@ -12,11 +12,11 @@ We could also likely do similar fairly easily with this JavaScript port of the t
 
 ## Usage
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
-```
+```bash
 ⇒  python3 clip-tokeniser.py
 
 Tokenising prompt: This is an example prompt with 123 ways of demonstrating different clip token splits, blowup
