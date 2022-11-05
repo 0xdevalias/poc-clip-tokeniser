@@ -47,3 +47,26 @@ Token 18: up 	(ID: 705)
 
 Wrapped Decoded Tokenised Prompt: «this »«is »«an »«example »«prompt »«with »«1 »«2 »«3 »«ways »«of »«demonstrating »«different »«clip »«token »«splits »«, »«blow»«up »
 ```
+
+## Further Reading
+
+Stable Diffusion
+
+- https://github.com/CompVis/stable-diffusion/blob/main/configs/stable-diffusion/v1-inference.yaml#L46-L70
+  - `cond_stage_config`: `ldm.modules.encoders.modules.FrozenCLIPEmbedder`
+- https://github.com/CompVis/stable-diffusion/blob/main/ldm/modules/encoders/modules.py#L137-L162
+  - `FrozenCLIPEmbedder`
+  - > Uses the CLIP transformer encoder for text (from Hugging Face)
+  - `version="openai/clip-vit-large-patch14"`
+  - `self.tokenizer = CLIPTokenizer.from_pretrained(version)`
+  - `self.transformer = CLIPTextModel.from_pretrained(version)`
+- https://huggingface.co/docs/transformers/model_doc/clip
+  - https://huggingface.co/docs/transformers/model_doc/clip#transformers.CLIPTokenizer
+- https://huggingface.co/openai/clip-vit-large-patch14
+  - https://huggingface.co/openai/clip-vit-large-patch14/blob/main/vocab.json
+    - This seems to be all of the possible tokens, and their corresponding IDs(?)
+  - https://huggingface.co/openai/clip-vit-large-patch14/blob/main/tokenizer_config.json
+  - https://huggingface.co/openai/clip-vit-large-patch14/blob/main/tokenizer.json
+    - This also seems to contain a whole pile of tokens and their corresponding IDs, the merges, as well as some other config things.. might be a combination of a bunch of these other files?
+  - https://huggingface.co/openai/clip-vit-large-patch14/blob/main/special_tokens_map.json
+  - https://huggingface.co/openai/clip-vit-large-patch14/blob/main/merges.txt
